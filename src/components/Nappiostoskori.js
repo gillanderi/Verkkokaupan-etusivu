@@ -2,8 +2,7 @@ import { useState } from "react";
 
 function Nappiostoskori (props){
 
-    const [ostokset, setOstokset] =useState (0);
-    console.log (ostokset);
+
     return (
 
         <button style={{
@@ -21,7 +20,7 @@ function Nappiostoskori (props){
 
            }} 
            onClick ={ () => {
-            setOstokset (ostokset + 1);
+            
             props.lisaaYhteissummaan();
 
            }}

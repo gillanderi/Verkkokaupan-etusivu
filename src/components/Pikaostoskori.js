@@ -1,6 +1,6 @@
 
 
-import Yhteensaostoskori from "./Yhteensaostoskori";
+
 function Pikaostoskori (props) {
 
     return(
@@ -9,7 +9,7 @@ function Pikaostoskori (props) {
 
             display : "flex",
             flexDirection : "column",
-            margin : "2%",
+            margin : "10%",
             marginTop : "3%",
             alignItems :"center",
             paddingBottom : "8em",
@@ -24,10 +24,12 @@ function Pikaostoskori (props) {
                 fontFamily :"fantasy",
             }}>Pikaostoskori</h3>
 
-            
-
-            <Yhteensaostoskori></Yhteensaostoskori>
-
+            {(props.yhteensa > 0) ?
+ 
+            <p> Ostoskorissa on {props.yhteensa} tuotetta</p>
+            :
+            <p>ostoskorissa ei ole tuotteita</p>
+        }
         </div>
     );
 }

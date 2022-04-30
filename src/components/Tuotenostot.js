@@ -1,18 +1,28 @@
 import { useState } from "react";
 import Nappiostoskori from "./Nappiostoskori";
-import Yhteensaostoskori from "./Yhteensaostoskori";
-
+import Pikaostoskori from "./Pikaostoskori";
+import Kirjautuminen from "./Kirjautuminen";
 
 function Tuotenostot (){
 
     const [yhteensa, setYhteensa] = useState (0);
+    const [summaYhteensa, setSummayhteensa] = useState (0);
 
     const lisaaYhteissummaan = () => {
 
         setYhteensa (yhteensa +1);
     }
+    const lisaaSummayhteissummaan = () => {
 
+        setSummayhteensa (summaYhteensa + summaYhteensa);
+    }
     return (
+        <div style={{
+
+            display : "flex",
+            flexWrap : "wrap",
+            width : "100%"
+        }}>
         <div style={{
             display : "flex",
             flexDirection : "column",
@@ -130,9 +140,21 @@ function Tuotenostot (){
             <p>25 &euro; </p>
             <Nappiostoskori lisaaYhteissummaan ={lisaaYhteissummaan}></Nappiostoskori>
             </div>
-
+            
         </div>
-            <Yhteensaostoskori yhteensa = {yhteensa}/>
+            
+        </div>
+        <div style={{
+            display : "flex",
+            flexDirection : "column",
+            flexWrap : "wrap",
+            width :"30%",
+
+        }}>
+            <Kirjautuminen></Kirjautuminen>
+
+            <Pikaostoskori  yhteensa={yhteensa}/>
+        </div>
         </div>
     );
 }
