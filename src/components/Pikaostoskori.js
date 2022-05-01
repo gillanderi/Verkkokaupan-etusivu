@@ -24,9 +24,14 @@ function Pikaostoskori (props) {
                 fontFamily :"fantasy",
             }}>Pikaostoskori</h3>
 
-            {(props.yhteensa > 0) ?
- 
-            <p> Ostoskorissa on {props.yhteensa} tuotetta</p>
+            {(props.ostoskori > 0) ?
+            <div style={{
+                textAlign : "center",
+            }}>
+            <p> Ostoskorissa on {props.ostoskori} tuotetta</p>
+            <br/>
+            <p>Summa on yhteensä {props.summaYhteensa}</p>
+            </div>
             :
             <p>ostoskorissa ei ole tuotteita</p>
         }

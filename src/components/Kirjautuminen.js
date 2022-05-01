@@ -13,7 +13,8 @@ function Kirjautuminen () {
             display : "flex",
             flexDirection : "column",
             margin : "2%",
-            marginTop : "3%",
+            marginTop : "10em",
+            paddingLeft: "0.5em",
             alignItems :"center",
             paddingBottom : "8em",
             

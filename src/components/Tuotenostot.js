@@ -2,19 +2,49 @@ import { useState } from "react";
 import Nappiostoskori from "./Nappiostoskori";
 import Pikaostoskori from "./Pikaostoskori";
 import Kirjautuminen from "./Kirjautuminen";
+import Tuotteet from "./Tuotteet"; 
+import Tuote from "./Tuote";
+
 
 function Tuotenostot (){
 
-    const [yhteensa, setYhteensa] = useState (0);
+    const [ostoskori, setOstoskori] = useState (0);
     const [summaYhteensa, setSummayhteensa] = useState (0);
 
-    const lisaaYhteissummaan = () => {
+    const lisaaOstoskoriin = () => {
 
-        setYhteensa (yhteensa +1);
+        setOstoskori (ostoskori +1);
+        
     }
-    const lisaaSummayhteissummaan = () => {
 
-        setSummayhteensa (summaYhteensa + summaYhteensa);
+    function teetuoteKortti (tuoteKortti){
+
+
+        return ( <div style ={{
+            
+            flex: "0 0 33.333333%",
+        }} ><Tuote 
+        key ={tuoteKortti.id}
+        nimi={tuoteKortti.nimi}
+        img={tuoteKortti.kuva}
+        hinta={tuoteKortti.hinta}
+        />
+        <Nappiostoskori 
+             lisaaOstoskoriin ={lisaaOstoskoriin}
+             lisaaSummayhteissummaan={lisaaSummayhteissummaan}
+             hinta={tuoteKortti.hinta}
+             />
+
+             </div>
+        );
+    }
+
+  
+    const lisaaSummayhteissummaan = (hinta) => {
+
+        setSummayhteensa (summaYhteensa + hinta );
+   
+    
     }
     return (
         <div style={{
@@ -23,138 +53,35 @@ function Tuotenostot (){
             flexWrap : "wrap",
             width : "100%"
         }}>
+        
+        
         <div style={{
             display : "flex",
-            flexDirection : "column",
-            flexWrap : "wrap",
+            alignItems :"center",
+            textAlign :"center",
+            flexWrap :"wrap",
+            paddingTop : "1em",
             width : "70%",
-            height : "auto",
-            textAlign : "center",
-            
         }}>
-        
-        <div style={{
-            display : "flex",
-            flexDirection : "row",
-            paddingTop : "1em"
-        
-        }}>
-            <div style ={{
-                padding :"0.5em",
-                width:"100%",
-            }}> 
-            <img src="/images/image1.jpg" alt="" style={{
-            width : "auto",
-            height : "13em",
-            objectFit :"scale-down",
-            }}/>
-            <p>Musta t-paita </p>
-            <p>25 &euro; </p>
-            <Nappiostoskori lisaaYhteissummaan ={lisaaYhteissummaan}></Nappiostoskori>
-            </div>
-
-            <div style ={{
-            padding :"0.5em",
-            width:"100%",
-            }}>
-            <img src="/images/image2.jpg" alt="" style={{
-            
-            width : "auto",
-            height : "13em",
-            objectFit :"scale-down",
-            
-            }}/>
-            <p>Japski kissa t-paita </p>
-            <p>29 &euro; </p>
-            <Nappiostoskori lisaaYhteissummaan ={lisaaYhteissummaan}></Nappiostoskori>
-            </div>
-
-            <div style ={{
-            padding :"0.5em",
-            width:"100%",
-            }}>
-            <img src="/images/image3.jpg" alt="" style={{
-            
-            width : "auto",
-            height : "13em",
-            objectFit :"scale-down",
-            
-            }}/>
-            <p>Musta logo t-paita </p>
-            <p>25 &euro; </p>
-            <Nappiostoskori lisaaYhteissummaan ={lisaaYhteissummaan}></Nappiostoskori>
-            </div>
-
-        </div>
-
-        <div style={{
-            display : "flex",
-            flexDirection : "row",
-            
-        }}>
-            <div style ={{
-            padding :"0.5em",
-            width:"100%",
-            }}> 
-            <img src="/images/image4.jpg" alt="" style={{
-            
-            width : "auto",
-            height : "13em",
-            objectFit :"scale-down",
-            }}/>
-
-            <p>Printti t-paita </p>
-            <p>25 &euro; </p>
-            <Nappiostoskori lisaaYhteissummaan ={lisaaYhteissummaan}></Nappiostoskori>
-            </div>
-
-            <div style ={{
-            padding :"0.5em",
-            width:"100%",
-            }}>
-            <img src="/images/image5.jpg" alt="" style={{
-            
-            width : "auto",
-            height : "13em",
-            objectFit :"scale-down",
             
             
-            }}/>
-            <p>Blankko t-paita </p>
-            <p>15 &euro; </p>
-            <Nappiostoskori lisaaYhteissummaan ={lisaaYhteissummaan}></Nappiostoskori>
-            </div>
-
-            <div style ={{
-            padding :"0.5em",
-            width:"100%",
-            }}>
-            <img src="/images/image6.jpg" alt="" style={{
+            {Tuotteet.map(teetuoteKortti)}
             
-            width : "auto",
-            height : "13em",
-            objectFit :"scale-down",
-            
-            }}/>
-            <p>Awesome t-paita </p>
-            <p>25 &euro; </p>
-            <Nappiostoskori lisaaYhteissummaan ={lisaaYhteissummaan}></Nappiostoskori>
-            </div>
-            
-        </div>
             
         </div>
         <div style={{
             display : "flex",
             flexDirection : "column",
             flexWrap : "wrap",
-            width :"30%",
+            
 
         }}>
             <Kirjautuminen></Kirjautuminen>
-
-            <Pikaostoskori  yhteensa={yhteensa}/>
+            <p></p>
+            <Pikaostoskori  ostoskori={ostoskori} summaYhteensa={summaYhteensa}/>
         </div>
+
+    
         </div>
     );
 }

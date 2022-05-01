@@ -2,7 +2,7 @@ import { useState } from "react";
 
 function Nappiostoskori (props){
 
-
+    
     return (
 
         <button style={{
@@ -13,7 +13,6 @@ function Nappiostoskori (props){
            cursor : "pointer",
            boxShadow:"rgba(0, 0, 0, 0.24) 0px 3px 8px",
            background: "#c16060",   
-           margin :"auto",
            fontSize : "0.8em",
            padding : "0.35em",  
            
@@ -21,8 +20,9 @@ function Nappiostoskori (props){
            }} 
            onClick ={ () => {
             
-            props.lisaaYhteissummaan();
-
+            props.lisaaOstoskoriin();
+            props.lisaaSummayhteissummaan (props.hinta);
+            
            }}
            >Lisää koriin</button>
            
