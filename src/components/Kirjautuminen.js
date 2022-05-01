@@ -5,6 +5,21 @@ function Kirjautuminen () {
     const [kayttajatunnus, setKayttajatunnus] = useState ();
     const [salasana, setSalasana] = useState ();
 
+    
+
+    
+
+    const testaaKayttaja = (kayttajatunnus, salasana) => {
+
+        {(kayttajatunnus == "testi" && salasana == "testi") ?
+
+        <p> Olet kirjautunut sisään</p> 
+        :
+        <p> syötä "testi" + "testi"</p>
+    }
+        
+    }
+
     return (
 
         <div style={{
@@ -79,7 +94,7 @@ function Kirjautuminen () {
               }}
 
              onClick={() =>{
-                
+                    testaaKayttaja (kayttajatunnus,salasana);
             }}>
                 Kirjaudu</button>
         </div>

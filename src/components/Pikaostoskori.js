@@ -3,6 +3,7 @@
 
 function Pikaostoskori (props) {
 
+
     return(
 
         <div style ={{
@@ -31,6 +32,20 @@ function Pikaostoskori (props) {
             <p> Ostoskorissa on {props.ostoskori} tuotetta</p>
             <br/>
             <p>Summa on yhteensä {props.summaYhteensa}</p>
+            <br/>
+            <button 
+            style={{
+                borderColor : "black",
+                borderWidth : "1px",
+                borderRadius : "4px",
+                cursor : "pointer",
+                boxShadow:"rgba(0, 0, 0, 0.24) 0px 3px 8px",
+                background: "#c16060",   
+                fontSize : "0.8em",
+                padding : "0.35em",
+            }}
+            onClick={()=>{ alert ("jatketaan tilaukseen...");}} 
+            >Tilaa</button>
             </div>
             :
             <p>ostoskorissa ei ole tuotteita</p>
