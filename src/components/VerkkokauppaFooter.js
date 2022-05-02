@@ -6,7 +6,7 @@ function VerkkokauppaFooter (){
             marginTop : "20px",
             display: "flex",
             justifyContent: "space-between",
-            background: "rgb(0,0,0)",
+            
             background: "linear-gradient(56deg, rgba(0,0,0,1) 0%, rgba(143,85,85,1) 83%)",
             color :"#e3d8d8",
             boxShadow: " 0px 5px 7px 3px rgba(99,99,99,1)",

@@ -15,20 +15,20 @@ function Kirjautuminen (props) {
 
         event.preventDefault();
     
-        var {kayttaja,sana} = document.forms [0];
+        var {kayttaja,sana} = document.forms[0];
     
-        const kayttajaData = testiKayttaja.find((user) => user.kayttajatunnus=== kayttaja.value);
+        const kayttajaData = testiKayttaja.find((user) => user.kayttajatunnus===kayttaja.value);
     
         if (kayttajaData){
-        if (kayttajaData.salasana !== sana.value) {
-          alert ("Syötä testi + testi");
+        if (kayttajaData.salasana!==sana.value){
+          alert("Syötä testi + testi");
         }else{
           setOnlahetetty(true);
           props.onkoKirjautunut(true);
           
         }
         } else {
-          alert  ("Syötä testi + testi");
+          alert("Syötä testi + testi");
         }
       };
       

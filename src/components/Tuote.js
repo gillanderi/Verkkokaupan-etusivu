@@ -8,7 +8,7 @@ function Tuote ({id,img,nimi,hinta,alehinta,kirjautunut}){
          <img 
 
          src={img}
-
+        alt="pic"
          style = {{
             width : "auto",
             height : "13em",

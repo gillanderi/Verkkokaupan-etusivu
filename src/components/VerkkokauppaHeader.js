@@ -9,7 +9,7 @@ function VerkkokauppaHeader() {
                 paddingBottom : "10px",
                 color : "#e3d8d8",
                 fontFamily : "fantasy",
-                background: "rgb(0,0,0)",
+                
                 background: "linear-gradient(56deg, rgba(0,0,0,1) 0%, rgba(143,85,85,1) 83%)",
                 fontSize : "20px",
                 display: "block",
