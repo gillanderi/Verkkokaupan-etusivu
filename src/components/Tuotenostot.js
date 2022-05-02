@@ -11,7 +11,7 @@ function Tuotenostot (){
     const [ostoskori, setOstoskori] = useState (0);
     const [summaYhteensa, setSummayhteensa] = useState (0);
 
-    const [kirjautunut, setKirjautunut] = useState ("false");
+    const [kirjautunut, setKirjautunut] = useState (false);
 
     const [aleSumma,setAlesumma]=useState(0);
 
