@@ -37,7 +37,7 @@ function Pikaostoskori (props) {
 
             {(props.kirjautunut===true)?
 
-            <p>summa on yhteensä {props.aleSumma}</p>
+            <p>summa on yhteensä <br/><br/>{props.aleSumma} &euro;</p>
             :
             <p>Summa on yhteensä <br/><br/> 
             {props.summaYhteensa} &euro;</p>

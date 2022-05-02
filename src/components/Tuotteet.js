@@ -9,8 +9,8 @@ const Tuotteet = [
     {
         "id": 2,
         "nimi" : "Kissa t-paita",
-        "hinta" : 29,
-        "alehinta" : 23.2,
+        "hinta" : 30,
+        "alehinta" : 24,
         "kuva" : "./images/image2.jpg"
     },
     {
