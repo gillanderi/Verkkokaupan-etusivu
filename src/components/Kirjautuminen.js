@@ -1,103 +1,155 @@
 import { useState } from "react";
 
-function Kirjautuminen () {
-
-    const [kayttajatunnus, setKayttajatunnus] = useState ();
-    const [salasana, setSalasana] = useState ();
+function Kirjautuminen (props) {
 
     
+    const [onlahetetty, setOnlahetetty] = useState (false);
 
+    const testiKayttaja =[ {
+        kayttajatunnus : "testi",
+        salasana : "testi"
+    }]
     
+    
+    const handleSubmit = (event) => {
 
-    const testaaKayttaja = (kayttajatunnus, salasana) => {
+        event.preventDefault();
+    
+        var {kayttaja,sana} = document.forms [0];
+    
+        const kayttajaData = testiKayttaja.find((user) => user.kayttajatunnus=== kayttaja.value);
+    
+        if (kayttajaData){
+        if (kayttajaData.salasana !== sana.value) {
+          alert ("Syötä testi + testi");
+        }else{
+          setOnlahetetty(true);
+          props.onkoKirjautunut(true);
+          
+        }
+        } else {
+          alert  ("Syötä testi + testi");
+        }
+      };
+      
+      const tietoLomake =(
 
-        {(kayttajatunnus == "testi" && salasana == "testi") ?
-
-        <p> Olet kirjautunut sisään</p> 
-        :
-        <p> syötä "testi" + "testi"</p>
-    }
-        
-    }
-
-    return (
-
-        <div style={{
-
-
+        <div className='form'>
+  
+          <form onSubmit={handleSubmit}>
+  
+            <div className='inputti'
+            style = {{
             display : "flex",
             flexDirection : "column",
-            margin : "2%",
-            marginTop : "10em",
+            margin : "3%",
+            marginTop : "5em",
             paddingLeft: "0.5em",
             alignItems :"center",
-            paddingBottom : "8em",
             
-        }}>
-
+            
+            
+        }}
+            >
             <input style = {{
-                padding: "1em",
-                margin: "0.5em",
-                height : "1em",
-                width : "12em",
-                fontSize : "1em",
-                border :"unset",
-                borderRadius : "4px",
-                boxShadow:"rgba(0, 0, 0, 0.24) 0px 3px 8px",
-                background: "#fff",
-              }}
-
-              type="text"
-              name="Kayttajatunnus"
-              required="required"
-              placeholder="Käyttäjätunnus"
-              onChange={ (e) => { setKayttajatunnus (e.target.value);
-             
-              
-              } }
-          />
+                  padding: "1em",
+                  margin: "0.5em",
+                  height : "1em",
+                  width : "12em",
+                  fontSize : "1em",
+                  border :"unset",
+                  borderRadius : "4px",
+                  boxShadow:"rgba(0, 0, 0, 0.24) 0px 3px 8px",
+                  background: "#fff",
+                  alignItems: "center",
+                }}
+  
+                type="text"
+                name="kayttaja"
+                required="required"
+                placeholder="Käyttäjätunnus"
+                />
+                  
+            </div>
+            <div className='inputti'>
             <input style = {{
-                padding: "1em",
-                margin: "0.5em",
-                height : "1em",
-                width : "12em",
-                fontSize : "1em",
-                border :"unset",
-                borderRadius : "4px",
-                boxShadow:"rgba(0, 0, 0, 0.24) 0px 3px 8px",
-                background: "#fff",
-              }}
+                  padding: "1em",
+                  margin: "0.5em",
+                  marginLeft: "0.9em",
+                  height : "1em",
+                  width : "12em",
+                  fontSize : "1em",
+                  border :"unset",
+                  borderRadius : "4px",
+                  boxShadow:"rgba(0, 0, 0, 0.24) 0px 3px 8px",
+                  background: "#fff",
+                  
+                }}
+  
+                type="text"
+                name="sana"
+                required="required"
+                placeholder="Salasana"
+                />
+                  
+            </div>
+            <div>
+                <button
+                style = {{
+                    padding: "1em",
+                    margin: "0.5em",
+                    marginLeft: "2em",
+                    height : "3em",
+                    width : "12em",
+                    fontSize : "1em",
+                    borderColor : "black",
+                    borderWidth : "1px",
+                    borderRadius : "4px",
+                    cursor : "pointer",
+                    boxShadow:"rgba(0, 0, 0, 0.24) 0px 3px 8px",
+                    background: "#c16060",
+                  }}
+                >Kirjaudu</button>
+            </div>
+          </form>
+        </div>
+      );
+    return (
 
+        <div>
+            {onlahetetty ?
+            <div>
+        <p
+        style={{
+            display: "flex",
+            textAlign :"center",
+            alignItems : "center",
+            margin: "3em",
+            marginTop : "6em",
+        }}
+        >Kirjautuminen hyväksytty </p>  
+        <button
+        style = {{
+            padding: "1em",
+            margin: "0.5em",
+            marginLeft: "2em",
+            height : "3em",
+            width : "12em",
+            fontSize : "1em",
+            borderColor : "black",
+            borderWidth : "1px",
+            borderRadius : "4px",
+            cursor : "pointer",
+            boxShadow:"rgba(0, 0, 0, 0.24) 0px 3px 8px",
+            background: "#c16060",
+          }}
+          onClick = {()=>window.location.reload(false)}
+        >Kirjaudu ulos</button>
+                </div>
+        :
+        tietoLomake}
 
-              type="text"
-              name="nimi"
-              required="required"
-              placeholder="Salasana"
-              onChange={ (e) => { setSalasana (e.target.value);
-             
-              
-              } }
-          />
-
-            <button style = {{
-                padding: "1em",
-                margin: "0.5em",
-                height : "3em",
-                width : "12em",
-                fontSize : "1em",
-                borderColor : "black",
-                borderWidth : "1px",
-                borderRadius : "4px",
-                cursor : "pointer",
-                boxShadow:"rgba(0, 0, 0, 0.24) 0px 3px 8px",
-                background: "#c16060",
-              }}
-
-             onClick={() =>{
-                    testaaKayttaja (kayttajatunnus,salasana);
-            }}>
-                Kirjaudu</button>
         </div>
     );
-}
+    }
 export default Kirjautuminen;

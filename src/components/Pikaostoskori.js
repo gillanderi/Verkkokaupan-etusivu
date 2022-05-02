@@ -1,8 +1,10 @@
+import { useState } from "react";
 
 
 
 function Pikaostoskori (props) {
 
+    
 
     return(
 
@@ -31,8 +33,15 @@ function Pikaostoskori (props) {
             }}>
             <p> Ostoskorissa on {props.ostoskori} tuotetta</p>
             <br/>
-            <p>Summa on yhteensä {props.summaYhteensa}</p>
-            <br/>
+            
+
+            {(props.kirjautunut===true)?
+
+            <p>summa on yhteensä {props.aleSumma}</p>
+            :
+            <p>Summa on yhteensä <br/><br/> 
+            {props.summaYhteensa} &euro;</p>
+        }
             <button 
             style={{
                 borderColor : "black",

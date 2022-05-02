@@ -11,6 +11,17 @@ function Tuotenostot (){
     const [ostoskori, setOstoskori] = useState (0);
     const [summaYhteensa, setSummayhteensa] = useState (0);
 
+    const [kirjautunut, setKirjautunut] = useState ("false");
+
+    const [aleSumma,setAlesumma]=useState(0);
+
+    
+    const laskeAle = (alehinta)=>{
+
+        setAlesumma (aleSumma + alehinta );
+        
+    }
+
     const lisaaOstoskoriin = () => {
 
         setOstoskori (ostoskori +1);
@@ -23,16 +34,23 @@ function Tuotenostot (){
         return ( <div style ={{
             
             flex: "0 0 33.333333%",
-        }} ><Tuote 
+        }} 
+        key ={tuoteKortti.id}
+        ><Tuote 
         key ={tuoteKortti.id}
         nimi={tuoteKortti.nimi}
         img={tuoteKortti.kuva}
         hinta={tuoteKortti.hinta}
+        alehinta={tuoteKortti.alehinta}
+        kirjautunut={kirjautunut}
         />
         <Nappiostoskori 
              lisaaOstoskoriin ={lisaaOstoskoriin}
              lisaaSummayhteissummaan={lisaaSummayhteissummaan}
+             laskeAle = {laskeAle}
              hinta={tuoteKortti.hinta}
+             alehinta = {tuoteKortti.alehinta}
+             kirjautunut = {kirjautunut}
              />
 
              </div>
@@ -46,6 +64,13 @@ function Tuotenostot (){
    
     
     }
+    const onkoKirjautunut = (kirjautunut) => {
+
+        setKirjautunut (kirjautunut);
+
+    }
+
+
     return (
         <div style={{
 
@@ -76,11 +101,16 @@ function Tuotenostot (){
             
 
         }}>
-            <Kirjautuminen></Kirjautuminen>
+            <Kirjautuminen onkoKirjautunut={onkoKirjautunut}
+            laskeAle = {laskeAle} summaYhteensa={summaYhteensa}
+            ></Kirjautuminen>
             <p></p>
-            <Pikaostoskori  ostoskori={ostoskori} summaYhteensa={summaYhteensa}/>
+            <Pikaostoskori  ostoskori={ostoskori} summaYhteensa={summaYhteensa}
+            kirjautunut={kirjautunut} aleSumma={aleSumma}
+            />
         </div>
 
+    
     
         </div>
     );

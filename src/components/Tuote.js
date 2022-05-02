@@ -1,10 +1,10 @@
 
-function Tuote ({img,nimi,hinta}){
+function Tuote ({id,img,nimi,hinta,alehinta,kirjautunut}){
 
 
     return (
 
-        <div >
+        <div key={id}>
          <img 
 
          src={img}
@@ -16,8 +16,16 @@ function Tuote ({img,nimi,hinta}){
         }}  />
 
         <p>{nimi}</p>
-        <p>{hinta} &euro;</p>
         
+        {(kirjautunut===true) 
+        ?
+        <p>Alessa! <br/>
+        {alehinta} &euro;
+        <br/>
+        Norm. <br/> {hinta} &euro;</p>
+        :
+        <p>{hinta} &euro;</p>
+        }
         </div>
     );
 }

@@ -14,14 +14,18 @@ function Nappiostoskori (props){
            boxShadow:"rgba(0, 0, 0, 0.24) 0px 3px 8px",
            background: "#c16060",   
            fontSize : "0.8em",
-           padding : "0.35em",  
+           padding : "0.35em", 
+           marginBottom : "1em", 
            
 
            }} 
            onClick ={ () => {
             
+            
+            props.laskeAle(props.alehinta);
+            
             props.lisaaOstoskoriin();
-            props.lisaaSummayhteissummaan (props.hinta);
+            props.lisaaSummayhteissummaan (props.hinta);   
             
            }}
            >Lisää koriin</button>
