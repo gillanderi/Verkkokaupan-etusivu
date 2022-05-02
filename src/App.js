@@ -1,6 +1,5 @@
 
 import './App.css';
-import { useState } from 'react';
 import VerkkokauppaHeader from './components/VerkkokauppaHeader';
 import Sivunmuotoilut from './components/Sivunmuotoilut';
 import VerkkokauppaFooter from './components/VerkkokauppaFooter';
